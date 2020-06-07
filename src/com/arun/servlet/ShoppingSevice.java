@@ -33,16 +33,12 @@ public class ShoppingSevice extends HttpServlet {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 		PrintWriter out = response.getWriter();
-		
-//		ProductDetails pd = new ProductDetails();
-//		pd.setProductId(request.getParameter(""));
-//		pd.setProductName(request.getParameter("productName"));
-//		
-//		ShoppingDao dao = new ShoppingDao();
-//		dao.logic();
-		String name= request.getParameter("productName");
-		out.print(name);
-	
+		String id= request.getParameter("productId");
+		int i= Integer.parseInt(id);
+		String name=request.getParameter("productName");		
+		ShoppingDao dao = new ShoppingDao();
+		dao.logic(i,name);
+		dao.view();
 	}
 
 	/**

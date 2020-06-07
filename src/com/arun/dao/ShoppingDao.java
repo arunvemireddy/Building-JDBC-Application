@@ -4,10 +4,17 @@ import com.arun.entity.ProductDetails;
 
 public class ShoppingDao {
 	
-	public void logic() {
-		ProductDetails pd = new ProductDetails();
+	ProductDetails pd = new ProductDetails();
+	public void logic(int id,String name) {
+		
+		pd.setProductId(id);
+		pd.setProductName(name);
+	}
 	
-		System.out.println(pd.getProductId()+pd.getProductName());
+	public void view() {
+		System.out.println(pd.getProductId());
+		System.out.println(pd.getProductName());
+		
 	}
 
 }
