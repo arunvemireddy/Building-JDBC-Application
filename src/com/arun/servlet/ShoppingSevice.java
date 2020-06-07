@@ -3,6 +3,7 @@ package com.arun.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,14 +34,18 @@ public class ShoppingSevice extends HttpServlet {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 		PrintWriter out = response.getWriter();
+		ProductDetails pd = new ProductDetails();
 		String id= request.getParameter("productId");
 		int i= Integer.parseInt(id);
 		String name=request.getParameter("productName");		
 		ShoppingDao dao = new ShoppingDao();
 		dao.logic(i,name);
 		dao.view();
+		String result="job done";
+		request.setAttribute("data", dao.view());
+		RequestDispatcher dispatcher= request.getRequestDispatcher("view.jsp");
+		dispatcher.forward(request, response);
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

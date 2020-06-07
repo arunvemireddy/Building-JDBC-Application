@@ -11,10 +11,10 @@ public class ShoppingDao {
 		pd.setProductName(name);
 	}
 	
-	public void view() {
+	public int view() {
 		System.out.println(pd.getProductId());
 		System.out.println(pd.getProductName());
-		
+		return pd.getProductId();
 	}
 
 }
